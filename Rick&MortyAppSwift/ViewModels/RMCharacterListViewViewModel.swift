@@ -96,7 +96,11 @@ final class RMCharacterListViewViewModel: NSObject {
                 //print("Post-update: ", strongSelf.cellViewModels.count)
                 DispatchQueue.main.async {
                     strongSelf.delegate?.didLoadMoreCharacters(with: indexPathsToAdd)
+                    strongSelf.isLoadingMoreCharacters = false
+                    
                 }
+                
+                
             case .failure(let failure):
                 print(String(describing: failure))
                 strongSelf.isLoadingMoreCharacters = false
